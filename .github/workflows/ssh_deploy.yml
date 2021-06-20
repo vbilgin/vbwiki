@@ -1,4 +1,4 @@
-name: Deploy Hugo via SSH
+name: Deploy Hugo via rsync
 
 on:
   push:
@@ -14,6 +14,15 @@ jobs:
       # so your workflow can access it
       - uses: actions/checkout@master
 
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          known_hosts: 'placeholder'
+          
+      - name: Adding known_hosts
+        run: ssh-keyscan -H victorbilgin.com >> ~/.ssh/known_hosts
+
       # Set up Hugo
       - name: Set up Hugo
         uses: peaceiris/actions-hugo@v2
@@ -24,15 +33,7 @@ jobs:
       # Build the site
       - name: Build site
         run: hugo --minify
-
-      # Deploy site
-      - name: Deploy site
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.REMOTE_HOST }}
-          username: ${{ secrets.REMOTE_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
-          rm: true
-          source: "public/"
-          target: "${{ secrets.REMOTE_DIR }}"
+        
+      # Deploy via rsync
+      - name: Deploy via rsync
+        run: rsync -avz --delete ./public/ ${{ secrets.REMOTE_USER }}@victorbilgin.com:${{ secrets.REMOTE_DIR }}
