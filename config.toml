@@ -1,0 +1,4 @@
+baseURL = "https://wiki.victorbilgin.com/"
+languageCode = "en-us"
+title = "VB Wiki"
+theme = "book"

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux Journey on VB Wiki</title>
+    <link>https://wiki.victorbilgin.com/docs/linux/linux-journey/</link>
+    <description>Recent content in Linux Journey on VB Wiki</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://wiki.victorbilgin.com/docs/linux/linux-journey/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://wiki.victorbilgin.com/docs/linux/linux-journey/advanced-text-fu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wiki.victorbilgin.com/docs/linux/linux-journey/advanced-text-fu/</guid>
+      <description>Advanced Text-Fu #  regex (regular expressions) #   powerful tool for pattern recognition  Test string: sally sells seashells by the seashore  beginning of a line:^by will match by the seashore end of a line: seashore$ will match by the seashore match a single character: b. will match by bracket notation: match characters in the brackets  d[iou]g will match dig, dog, dug ^ in bracket means anything besides this: d[^i]g will match dog and dug but not dig specify a range of characters with a -: d[a-c]g brackets are case sensitive    </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://wiki.victorbilgin.com/docs/linux/linux-journey/command-line/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wiki.victorbilgin.com/docs/linux/linux-journey/command-line/</guid>
+      <description>Command Line #  The Shell #   shell is just a program that takes your commands from the keyboard and sends them to the OS many types of shells: bash (bourne again shell), ksh, zsh, tsch echo will print the argument(s) to the screen date will print the current date whoami will print the currently logged in user&amp;rsquo;s username  pwd (Print Working Directory) #   everything in Linux is a file use pwd to see where you are currently located in the directory structure - the path  cd (change directory) #   you can specifiy paths in two ways: relative and absolute the absolute way means you type the path from the root directory / onward relative means you can use these shortcuts in the path since they are relative to where you currently are:  .</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://wiki.victorbilgin.com/docs/linux/linux-journey/permissions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wiki.victorbilgin.com/docs/linux/linux-journey/permissions/</guid>
+      <description>Permissions #  file permissions #   long listing for a file example: drwxr-xr-x 2 pete penguins 4096 Dec 1 11:45 file.txt four main parts to file&amp;rsquo;s permissions: drwxr-xr-x  first is the type of file (d for dir and - for regular file) next three are groups of three bits that denote actual permissions: rwx, r-x, and r-x  these represent the user permissions, group permissions, and other permissions r: readable w: writable x: executable (an executable program) -: empty      modifying permissions #   use chmod with + or - to add or remove permissions for example: chmod u+x myfile means to add the execute bit to the user permissions for myfile change multiple permission bits: chmod ug+w myfile will add writable bit to both user and group permissions using numerical syntax:  4: read 2: write 1: exec   chmod 755 myfile will provide all permissions to user but only read and exec to group and other permissions  ownership permissions #   you can change the user and group ownership of a file as well user: sudo chown &amp;lt;username&amp;gt; &amp;lt;file/dir&amp;gt; group: sudo chgrp &amp;lt;group&amp;gt; &amp;lt;file/dir&amp;gt; both: sudo shown &amp;lt;user&amp;gt;:&amp;lt;group&amp;gt; &amp;lt;file/dir&amp;gt;  umask #   every file gets created with certain default permissions use umask to change those default permissions umask takes the numerical permission syntax but not added: umask 021  we say what we want to take away so for the above example we would take no bits away from users take write bit away from group and take way exec from other   this won&amp;rsquo;t persist past a restart; need to modify .</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://wiki.victorbilgin.com/docs/linux/linux-journey/text-fu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wiki.victorbilgin.com/docs/linux/linux-journey/text-fu/</guid>
+      <description>Text-Fu #  stdout (standard out) #   echo hello world &amp;gt; peanuts.txt processes in linux use i/o streams to receive input and return output normally, echo takes the input (stdin) from the keyboard and returns the output (stdout) to the screen i/o redirection allows us to redirect the output to a file or another command: &amp;gt; if a file doesn&amp;rsquo;t already exist, it will create it. if it does exist, it will overwrite it &amp;gt;&amp;gt; to append instead of overwrite  stdin (standard in) #   the usual source for stdin is the keyboard but we can also use files, output from other processes, and the terminal &amp;lt; for stdin redirection cat &amp;lt; peanuts.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://wiki.victorbilgin.com/docs/linux/linux-journey/user-management/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wiki.victorbilgin.com/docs/linux/linux-journey/user-management/</guid>
+      <description>User Management #  users and groups #   in traditional OSs, users and groups are used for access and permissions when a process is started by a user, the owner of the process will be that user file access and ownership is governed by users and groups each user has their own home directory (usually) and it can be find in /home/username in most distros system uses UIDs (user IDs) to manage users but humans use usernames groups are just collections of users; system assigns them GIDs (group IDs) in linux, there are non-human users too; these users run system processes (daemons) one of the most important users is root or superuser  root is the most powerful user on the system root can access any file/dir and kill any process don&amp;rsquo;t want to be root all the time as that is dangerous if possible, run a command as root via sudo (superuser do)    root #   use su or su - to get a root shell (su is for substitute user)  this can used with a username to act as that user, not just root   who can use sudo?</description>
+    </item>
+    
+  </channel>
+</rss>

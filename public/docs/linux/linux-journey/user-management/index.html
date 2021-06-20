@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.84.0" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="User Management #  users and groups #   in traditional OSs, users and groups are used for access and permissions when a process is started by a user, the owner of the process will be that user file access and ownership is governed by users and groups each user has their own home directory (usually) and it can be find in /home/username in most distros system uses UIDs (user IDs) to manage users but humans use usernames groups are just collections of users; system assigns them GIDs (group IDs) in linux, there are non-human users too; these users run system processes (daemons) one of the most important users is root or superuser  root is the most powerful user on the system root can access any file/dir and kill any process don&rsquo;t want to be root all the time as that is dangerous if possible, run a command as root via sudo (superuser do)    root #   use su or su - to get a root shell (su is for substitute user)  this can used with a username to act as that user, not just root   who can use sudo?">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="User Management #  users and groups #   in traditional OSs, users and groups are used for access and permissions when a process is started by a user, the owner of the process will be that user file access and ownership is governed by users and groups each user has their own home directory (usually) and it can be find in /home/username in most distros system uses UIDs (user IDs) to manage users but humans use usernames groups are just collections of users; system assigns them GIDs (group IDs) in linux, there are non-human users too; these users run system processes (daemons) one of the most important users is root or superuser  root is the most powerful user on the system root can access any file/dir and kill any process don&rsquo;t want to be root all the time as that is dangerous if possible, run a command as root via sudo (superuser do)    root #   use su or su - to get a root shell (su is for substitute user)  this can used with a username to act as that user, not just root   who can use sudo?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wiki.victorbilgin.com/docs/linux/linux-journey/user-management/" /><meta property="article:section" content="docs" />
+
+
+
+<title>User Management ~ VB Wiki</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.68be0b7a9674f2a612ce0e9b2e9447ff4b7ac96546e06b642bfd3ded0ca490ef.css" integrity="sha256-aL4LepZ08qYSzg6bLpRH/0t6yWVG4GtkK/097QykkO8=">
+<script defer src="/en.search.min.aafaa0ef21987d187edf0f092bf03b1126615daa2e9f59e228285b2b17b722aa.js" integrity="sha256-qvqg7yGYfRh&#43;3w8JK/A7ESZhXaoun1niKChbKxe3Iqo="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>VB Wiki</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-010cc3a6dda69f98986133a7094047b7" class="toggle"  />
+    <label for="section-010cc3a6dda69f98986133a7094047b7" class="flex justify-between">
+      <a  class="">Books</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/books/facebook/" class="">Facebook</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/books/permanent-record/" class="">Permanent Record</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6ae1a891fb3a3f71d71273fc61b29b76" class="toggle" checked />
+    <label for="section-6ae1a891fb3a3f71d71273fc61b29b76" class="flex justify-between">
+      <a  class="">Linux</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-71c491bc5a49321b4aa6a7e13d840298" class="toggle" checked />
+    <label for="section-71c491bc5a49321b4aa6a7e13d840298" class="flex justify-between">
+      <a  class="">Linux Journey</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/linux/linux-journey/advanced-text-fu/" class="">Advanced Text Fu</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/linux/linux-journey/command-line/" class="">Command Line</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/linux/linux-journey/permissions/" class="">Permissions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/linux/linux-journey/text-fu/" class="">Text Fu</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/linux/linux-journey/user-management/" class=" active">User Management</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/linux/nginx/" class="">nginx</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/linux/ssh/" class="">SSH</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-402b3ea0ff87c091885807d21f799220" class="toggle"  />
+    <label for="section-402b3ea0ff87c091885807d21f799220" class="flex justify-between">
+      <a  class="">Networking</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/networking/home-network/" class="">Home Network</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-57e58ca5aae968f4961a4036f314a5de" class="toggle"  />
+    <label for="section-57e58ca5aae968f4961a4036f314a5de" class="flex justify-between">
+      <a  class="">Programming</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0026b50f5ce95b86be9d47f6d4775604" class="toggle"  />
+    <label for="section-0026b50f5ce95b86be9d47f6d4775604" class="flex justify-between">
+      <a  class="">Python</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-22f83749563ccd747793c8cbea3b3075" class="toggle"  />
+    <label for="section-22f83749563ccd747793c8cbea3b3075" class="flex justify-between">
+      <a  class="">Recipes</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4952d651c638570416d83e9ba3de4279" class="toggle"  />
+    <label for="section-4952d651c638570416d83e9ba3de4279" class="flex justify-between">
+      <a  class="">Alcoholic</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/recipes/alcoholic/black-russian/" class="">Black Russian</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/recipes/alcoholic/lemon-drop/" class="">Lemon Drop</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/recipes/alcoholic/moscow-mule/" class="">Moscow Mule</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/recipes/alcoholic/screwdriver/" class="">Screwdriver</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/recipes/alcoholic/the-naughty-dog/" class="">The Naughty Dog</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6ec41f84a8f3003be40998d64b87be5a" class="toggle"  />
+    <label for="section-6ec41f84a8f3003be40998d64b87be5a" class="flex justify-between">
+      <a  class="">Static Site Generators</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Hugo</span>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Jekyll</span>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>User Management</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#user-management">User Management</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h2 id="user-management">
+  User Management
+  <a class="anchor" href="#user-management">#</a>
+</h2>
+<h1 id="users-and-groups">
+  users and groups
+  <a class="anchor" href="#users-and-groups">#</a>
+</h1>
+<ul>
+<li>in traditional OSs, users and groups are used for access and permissions</li>
+<li>when a process is started by a user, the owner of the process will be that user</li>
+<li>file access and ownership is governed by users and groups</li>
+<li>each user has their own home directory (usually) and it can be find in <code>/home/username</code> in most distros</li>
+<li>system uses UIDs (user IDs) to manage users but humans use usernames</li>
+<li>groups are just collections of users; system assigns them GIDs (group IDs)</li>
+<li>in linux, there are non-human users too; these users run system processes (daemons)</li>
+<li>one of the most important users is <code>root</code> or <code>superuser</code>
+<ul>
+<li>root is the most powerful user on the system</li>
+<li>root can access any file/dir and kill any process</li>
+<li>don&rsquo;t want to be root all the time as that is dangerous</li>
+<li>if possible, run a command as root via <code>sudo</code> (superuser do)</li>
+</ul>
+</li>
+</ul>
+<h1 id="root">
+  root
+  <a class="anchor" href="#root">#</a>
+</h1>
+<ul>
+<li>use <code>su</code> or <code>su -</code> to get a root shell (<code>su</code> is for substitute user)
+<ul>
+<li>this can used with a username to act as that user, not just root</li>
+</ul>
+</li>
+<li>who can use <code>sudo</code>? the file <code>/etc/sudoers</code> says who. use <code>visudo</code> to edit it</li>
+</ul>
+<h1 id="etcpasswd">
+  /etc/passwd
+  <a class="anchor" href="#etcpasswd">#</a>
+</h1>
+<ul>
+<li>to see what username is mapped to what UID, look at <code>/etc/passwd</code></li>
+<li>lines look like <code>a:x:1000:1000:,,,:/home/a:/bin/bash</code></li>
+<li>format is this: <code>[username]:[user's password]:[UID]:[GID]:[GECOS]:[user's home dir]: [user's shell]</code>
+<ul>
+<li>password isn&rsquo;t actually stored here but in <code>/etc/shadow</code>
+<ul>
+<li>this field will have <code>x</code> if the password is encrypted and stored in <code>/etc/shadow</code></li>
+<li><code>*</code> if user doesn&rsquo;t have login access</li>
+<li>if blank, there is no password</li>
+</ul>
+</li>
+<li>GECOS is a comma-delimited field where info like user&rsquo;s real name can be put</li>
+</ul>
+</li>
+<li>human and system users are listed in this file</li>
+<li>you can edit this file by hand with <code>vipw</code> but better to use other tools</li>
+</ul>
+<h1 id="etcshadow">
+  /etc/shadow
+  <a class="anchor" href="#etcshadow">#</a>
+</h1>
+<ul>
+<li>this has info about user auth so it requires sudo to read</li>
+<li>lines look like: <code>a:$6$ImMe6v6yyz1XoGHN$y8XPBMCTp11AV0INRNJc7eO8eXppXqVlqstB3ftR3iajOgxAdXmlQ9P8RYAT6XpxfraCHQJAS3CnG6qwjg9Q71:18692:0:99999:7:::</code></li>
+<li>format: <code>[username]:[encrypted password]:[date of last pass change]:[min password age]:[max password age]:[password warning period]:[password inactivity period]:[accoutn expiration date]:[reserved field for future use]</code></li>
+</ul>
+<h1 id="etcgroup">
+  /etc/group
+  <a class="anchor" href="#etcgroup">#</a>
+</h1>
+<ul>
+<li>shows different groups and their permissions</li>
+<li>lines look like <code>root:x:0:</code></li>
+<li>format: <code>[group name]:[group password]:[GID]:[list of users in group]</code></li>
+<li><code>groups</code> will show you what groups you&rsquo;re in</li>
+</ul>
+<h1 id="user-mgmt-tools">
+  user mgmt tools
+  <a class="anchor" href="#user-mgmt-tools">#</a>
+</h1>
+<ul>
+<li><code>adduser</code> and <code>useradd</code> both create new users
+<ul>
+<li><code>adduser</code> has more features like making a home dir</li>
+<li>need to run with sudo</li>
+</ul>
+</li>
+<li><code>sudo userdel &lt;user&gt;</code> to delete user</li>
+<li><code>passwd &lt;user&gt;</code> to change password</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#user-management">User Management</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

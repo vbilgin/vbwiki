@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.84.0" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Text-Fu #  stdout (standard out) #   echo hello world &gt; peanuts.txt processes in linux use i/o streams to receive input and return output normally, echo takes the input (stdin) from the keyboard and returns the output (stdout) to the screen i/o redirection allows us to redirect the output to a file or another command: &gt; if a file doesn&rsquo;t already exist, it will create it. if it does exist, it will overwrite it &gt;&gt; to append instead of overwrite  stdin (standard in) #   the usual source for stdin is the keyboard but we can also use files, output from other processes, and the terminal &lt; for stdin redirection cat &lt; peanuts.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="Text-Fu #  stdout (standard out) #   echo hello world &gt; peanuts.txt processes in linux use i/o streams to receive input and return output normally, echo takes the input (stdin) from the keyboard and returns the output (stdout) to the screen i/o redirection allows us to redirect the output to a file or another command: &gt; if a file doesn&rsquo;t already exist, it will create it. if it does exist, it will overwrite it &gt;&gt; to append instead of overwrite  stdin (standard in) #   the usual source for stdin is the keyboard but we can also use files, output from other processes, and the terminal &lt; for stdin redirection cat &lt; peanuts." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wiki.victorbilgin.com/docs/linux/linux-journey/text-fu/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Text Fu ~ VB Wiki</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.68be0b7a9674f2a612ce0e9b2e9447ff4b7ac96546e06b642bfd3ded0ca490ef.css" integrity="sha256-aL4LepZ08qYSzg6bLpRH/0t6yWVG4GtkK/097QykkO8=">
+<script defer src="/en.search.min.aafaa0ef21987d187edf0f092bf03b1126615daa2e9f59e228285b2b17b722aa.js" integrity="sha256-qvqg7yGYfRh&#43;3w8JK/A7ESZhXaoun1niKChbKxe3Iqo="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>VB Wiki</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-010cc3a6dda69f98986133a7094047b7" class="toggle"  />
+    <label for="section-010cc3a6dda69f98986133a7094047b7" class="flex justify-between">
+      <a  class="">Books</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/books/facebook/" class="">Facebook</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/books/permanent-record/" class="">Permanent Record</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6ae1a891fb3a3f71d71273fc61b29b76" class="toggle" checked />
+    <label for="section-6ae1a891fb3a3f71d71273fc61b29b76" class="flex justify-between">
+      <a  class="">Linux</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-71c491bc5a49321b4aa6a7e13d840298" class="toggle" checked />
+    <label for="section-71c491bc5a49321b4aa6a7e13d840298" class="flex justify-between">
+      <a  class="">Linux Journey</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/linux/linux-journey/advanced-text-fu/" class="">Advanced Text Fu</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/linux/linux-journey/command-line/" class="">Command Line</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/linux/linux-journey/permissions/" class="">Permissions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/linux/linux-journey/text-fu/" class=" active">Text Fu</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/linux/linux-journey/user-management/" class="">User Management</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/linux/nginx/" class="">nginx</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/linux/ssh/" class="">SSH</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-402b3ea0ff87c091885807d21f799220" class="toggle"  />
+    <label for="section-402b3ea0ff87c091885807d21f799220" class="flex justify-between">
+      <a  class="">Networking</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/networking/home-network/" class="">Home Network</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-57e58ca5aae968f4961a4036f314a5de" class="toggle"  />
+    <label for="section-57e58ca5aae968f4961a4036f314a5de" class="flex justify-between">
+      <a  class="">Programming</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0026b50f5ce95b86be9d47f6d4775604" class="toggle"  />
+    <label for="section-0026b50f5ce95b86be9d47f6d4775604" class="flex justify-between">
+      <a  class="">Python</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-22f83749563ccd747793c8cbea3b3075" class="toggle"  />
+    <label for="section-22f83749563ccd747793c8cbea3b3075" class="flex justify-between">
+      <a  class="">Recipes</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4952d651c638570416d83e9ba3de4279" class="toggle"  />
+    <label for="section-4952d651c638570416d83e9ba3de4279" class="flex justify-between">
+      <a  class="">Alcoholic</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/recipes/alcoholic/black-russian/" class="">Black Russian</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/recipes/alcoholic/lemon-drop/" class="">Lemon Drop</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/recipes/alcoholic/moscow-mule/" class="">Moscow Mule</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/recipes/alcoholic/screwdriver/" class="">Screwdriver</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://wiki.victorbilgin.com/docs/recipes/alcoholic/the-naughty-dog/" class="">The Naughty Dog</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6ec41f84a8f3003be40998d64b87be5a" class="toggle"  />
+    <label for="section-6ec41f84a8f3003be40998d64b87be5a" class="flex justify-between">
+      <a  class="">Static Site Generators</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Hugo</span>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Jekyll</span>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Text Fu</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#text-fu">Text-Fu</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h2 id="text-fu">
+  Text-Fu
+  <a class="anchor" href="#text-fu">#</a>
+</h2>
+<h1 id="stdout-standard-out">
+  stdout (standard out)
+  <a class="anchor" href="#stdout-standard-out">#</a>
+</h1>
+<ul>
+<li><code>echo hello world &gt; peanuts.txt</code></li>
+<li>processes in linux use i/o streams to receive input and return output</li>
+<li>normally, <code>echo</code> takes the input (stdin) from the keyboard and returns the output (stdout) to the screen</li>
+<li>i/o redirection allows us to redirect the output to a file or another command: <code>&gt;</code></li>
+<li>if a file doesn&rsquo;t already exist, it will create it. if it does exist, it will overwrite it</li>
+<li><code>&gt;&gt;</code> to append instead of overwrite</li>
+</ul>
+<h1 id="stdin-standard-in">
+  stdin (standard in)
+  <a class="anchor" href="#stdin-standard-in">#</a>
+</h1>
+<ul>
+<li>the usual source for stdin is the keyboard but we can also use files, output from other processes, and the terminal</li>
+<li><code>&lt;</code> for stdin redirection</li>
+<li><code>cat &lt; peanuts.txt &gt; banana.txt</code></li>
+<li>we direct the contents of peanuts.txt into cat and then direct the output of that into banana.txt</li>
+</ul>
+<h1 id="stderr-standard-error">
+  stderr (standard error)
+  <a class="anchor" href="#stderr-standard-error">#</a>
+</h1>
+<ul>
+<li>stderr (errors from commands or programs) go to the screen by default</li>
+<li>we can redirect errors with <code>2&gt;</code>:
+<ul>
+<li><code>ls /fake/dir 2&gt; peanuts.txt</code></li>
+</ul>
+</li>
+<li>what if we wanted to output both stdout and stderr?
+<ul>
+<li><code>ls /fake/dir &gt; peanuts.txt 2&gt;&amp;1</code></li>
+<li>sends the results of <code>ls</code> to the file and then tells stderr to go redirect to wherever stdout is pointing (peanuts.txt)</li>
+</ul>
+</li>
+<li>shorter way: <code>ls /fake/dir &amp;&gt; peanuts.txt</code></li>
+<li>want to get rid of errors completely?
+<ul>
+<li><code>ls /fake/dir 2&gt; /dev/null</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="pipe-and-tee">
+  pipe and tee
+  <a class="anchor" href="#pipe-and-tee">#</a>
+</h1>
+<ul>
+<li>use a pipe (<code>|</code>) to redirect output from one command to another</li>
+<li>basically takes the stdout of one command and makes it the stdin of the next</li>
+<li>what if you want to see the output and pipe it? use <code>tee</code>:
+<ul>
+<li><code>ls | tee peanuts.txt</code></li>
+<li>you&rsquo;ll see the result and it&rsquo;ll be in the file</li>
+</ul>
+</li>
+</ul>
+<h1 id="env-environment">
+  env (environment)
+  <a class="anchor" href="#env-environment">#</a>
+</h1>
+<ul>
+<li>env variables such as <code>$HOME</code> and <code>$USER</code> exist and will change based on the situation</li>
+<li>see env variables with <code>env</code></li>
+<li>access env variables by adding <code>$</code> to the front</li>
+<li>very important env var is <code>$PATH</code> - this a string of dirs separated by colons that the OS uses to find commands
+<ul>
+<li>download an executable and want to use it anywhere? either add the dir to the PATH or move the executable to one of the current PATH dirs</li>
+</ul>
+</li>
+</ul>
+<h1 id="cut">
+  cut
+  <a class="anchor" href="#cut">#</a>
+</h1>
+<ul>
+<li>extracts a portion of text from a file</li>
+<li><code>cut -c 5 sample.txt</code> will output the fifth character (starting at 1, not 0) of every line of text in the file</li>
+<li><code>cut -f 2 sameple.txt</code> will cut the text based on fields
+<ul>
+<li>default delimiter of a field is TAB, everything separated by a TAB is considered a different field</li>
+<li>add <code>-d &quot;&lt;delimiter&gt;&quot;</code> to specifiy a custom delimiter</li>
+</ul>
+</li>
+<li>can specifiy a range of chars or fields: <code>-c 2-5</code> (2nd thru 5th) or <code>-c 5-</code> (5th thru last) or <code>-c -5</code> (1st thru 5th)</li>
+</ul>
+<h1 id="paste">
+  paste
+  <a class="anchor" href="#paste">#</a>
+</h1>
+<ul>
+<li>similar to <code>cat</code>, merges lines together in a file</li>
+<li><code>paste -s sample.txt</code> will output the contents of the file merged together with the default delimiter of TAB
+<ul>
+<li><code>-s</code> to make it one line</li>
+<li>use <code>-d &quot;&lt;delimiter&gt;&quot;</code> to specify a custom delimiter</li>
+</ul>
+</li>
+</ul>
+<h1 id="head">
+  head
+  <a class="anchor" href="#head">#</a>
+</h1>
+<ul>
+<li><code>head &lt;file&gt;</code> will output the first 10 lines of a file</li>
+<li><code>-n &lt;num&gt;</code> to specify the number of lines</li>
+</ul>
+<h1 id="tail">
+  tail
+  <a class="anchor" href="#tail">#</a>
+</h1>
+<ul>
+<li>same as <code>head</code> but for last 10 lines</li>
+<li>use <code>-n &lt;num&gt;</code> to specify number of lines</li>
+<li>use <code>-f</code> to follow the file (see changes as they occur)</li>
+</ul>
+<h1 id="expand-and-unexpand">
+  expand and unexpand
+  <a class="anchor" href="#expand-and-unexpand">#</a>
+</h1>
+<ul>
+<li><code>expand &lt;file&gt;</code> to change all TABs to spaces</li>
+<li><code>unexpand -a &lt;file&gt;</code> to do the opposite</li>
+</ul>
+<h1 id="join-and-split">
+  join and split
+  <a class="anchor" href="#join-and-split">#</a>
+</h1>
+<ul>
+<li>use <code>join &lt;file_1&gt; &lt;file_2&gt;</code> to join the files together by a common field:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">file1.txt
+
+<span style="color:#ae81ff">1</span> John
+
+<span style="color:#ae81ff">2</span> Jane
+
+<span style="color:#ae81ff">3</span> Mary
+
+file2.txt
+
+<span style="color:#ae81ff">1</span> Doe
+
+<span style="color:#ae81ff">2</span> Doe
+
+<span style="color:#ae81ff">3</span> Sue
+
+$ join file1.txt file2.txt
+
+<span style="color:#ae81ff">1</span> John Doe
+
+<span style="color:#ae81ff">2</span> Jane Doe
+
+<span style="color:#ae81ff">3</span> Mary Sue
+</code></pre></div><ul>
+<li>joined by first field by default; fields have to be identical</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">file1.txt
+
+John <span style="color:#ae81ff">1</span>
+
+Jane <span style="color:#ae81ff">2</span>
+
+Mary <span style="color:#ae81ff">3</span>
+
+file2.txt
+
+<span style="color:#ae81ff">1</span> Doe
+
+<span style="color:#ae81ff">2</span> Doe
+
+<span style="color:#ae81ff">3</span> Sue
+
+</code></pre></div><ul>
+<li>use <code>join -1 2 -2 1 file1.txt file2.txt</code> for the above</li>
+<li>use <code>split &lt;file&gt;</code> to split a file into different files (split once 1000 lines reached)
+<ul>
+<li>files named <code>x**</code> by default</li>
+</ul>
+</li>
+</ul>
+<h1 id="sort">
+  sort
+  <a class="anchor" href="#sort">#</a>
+</h1>
+<ul>
+<li><code>sort &lt;file&gt;</code> to sort the lines of the file alphabetically</li>
+<li><code>-r</code> to do a reverse sort</li>
+<li><code>-n</code> to sort based on numerical value</li>
+</ul>
+<h1 id="tr-translate">
+  tr (translate)
+  <a class="anchor" href="#tr-translate">#</a>
+</h1>
+<ul>
+<li><code>tr a-z A-Z</code> will transform all lowercase letters to uppercase interactively</li>
+<li><code>-d &lt;characters&gt;</code> to delete certain chars from the input</li>
+</ul>
+<h1 id="uniq-unique">
+  uniq (unique)
+  <a class="anchor" href="#uniq-unique">#</a>
+</h1>
+<ul>
+<li>pass in a file and get only unique values as output: <code>uniq &lt;file&gt;</code></li>
+<li><code>-c</code> to get a count of how many times each value appeared</li>
+<li><code>-u</code> to get only values that appeared once (truly unique)</li>
+<li><code>-d</code> to get only values that occur more than once (duplicates)</li>
+<li>NOTE: <code>uniq</code> will not detect duplicates unless they are adjacent
+<ul>
+<li>to overcome this we can <code>sort</code> first and the pipe into <code>uniq</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="wc-and-nl">
+  wc and nl
+  <a class="anchor" href="#wc-and-nl">#</a>
+</h1>
+<ul>
+<li><code>wc &lt;file&gt;</code> shows the total count of words in a file</li>
+<li>it displays
+<ul>
+<li>the number of lines (<code>-l</code>)</li>
+<li>number of words (<code>-w</code>)</li>
+<li>number of bytes (<code>-c</code>)</li>
+</ul>
+</li>
+<li>pass the above flags to only get that value</li>
+<li>similar is <code>nl &lt;file&gt;</code> which outputs a numbered version of the lines in the file:</li>
+</ul>
+<pre><code>1. sdfasdf
+2. dsdfsdf
+</code></pre><h1 id="grep">
+  grep
+  <a class="anchor" href="#grep">#</a>
+</h1>
+<ul>
+<li>used to search for matching pattern</li>
+<li><code>grep &lt;pattern&gt; &lt;location_to_search&gt;</code></li>
+<li><code>-i</code> to make it case insensitive</li>
+<li>you can use regex if needed</li>
+<li><code>-E</code> to interpret patterns as extended regex</li>
+<li><code>-F</code> to interpret patterns as fixed strings, not regex</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#text-fu">Text-Fu</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
